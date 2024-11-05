@@ -3,8 +3,7 @@
 
 body {
     font-family: 'VT323', monospace;
-    background: rgb(2,0,36);
-    background: linear-gradient(180deg, rgba(2,0,36,1) 0%, rgba(121,9,9,1) 56%, rgba(173,0,0,1) 100%);
+    background: rgba(121, 9, 9, 1) 56%
     background-size: 400% 400%;
     animation: gradient 30s ease infinite;
     color: #ff4d4d;
@@ -25,8 +24,7 @@ body {
 
 /* Header styles */
 header {
-    background: rgb(2,0,36);
-    background: linear-gradient(180deg, rgba(2,0,36,1) 0%, rgba(121,9,9,1) 56%, rgba(173,0,0,1) 100%);
+    background: rgba(121, 9, 9, 1) 56%
     text-align: center;
     padding: 2rem;
     border-bottom: 2px solid #ff4d4d;
