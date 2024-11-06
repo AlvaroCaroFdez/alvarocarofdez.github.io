@@ -68,6 +68,19 @@ main {
     padding: 2rem 0;
 }
 
+/* Responsividad para diferentes tamaños de pantalla */
+@media (max-width: 992px) {
+    .projects {
+        grid-template-columns: repeat(2, 1fr); /* Dos columnas en pantallas medianas */
+    }
+}
+
+@media (max-width: 600px) {
+    .projects {
+        grid-template-columns: 1fr; /* Una columna en pantallas pequeñas */
+    }
+}
+
 /* Card styles */
 .card {
     background-color: #222;
