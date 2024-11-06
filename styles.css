@@ -1,11 +1,8 @@
-/* Importa la fuente 'VT323' desde Google Fonts */
-@import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
 
 body {
-    font-family: 'VT323', monospace;
-    background: rgba(121, 9, 9, 1) 56%
-    background-size: 400% 400%;
-    animation: gradient 30s ease infinite;
+    font-family: 'Press Start 2P', monospace;
+    background: #111;
     color: #ff4d4d;
     margin: 0;
     padding: 0;
@@ -16,100 +13,53 @@ body {
     justify-content: center;
 }
 
-@keyframes gradient {
-    0% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
-}
-
-/* Header styles */
 header {
-    background: rgba(121, 9, 9, 1) 56%
     text-align: center;
     padding: 2rem;
-    border-bottom: 2px solid #ff4d4d;
     width: 100%;
+    border-bottom: 2px solid #ff4d4d;
 }
 
 header h1 {
-    font-size: 3em;
+    font-size: 2.5em;
     color: #ff4d4d;
-    text-shadow: 0px 0px 8px rgba(255, 77, 77, 0.7);
     margin: 0;
 }
 
 header p {
     color: #d3d3d3;
-    font-size: 1.2em;
+    font-size: 1em;
     margin-top: 0.5rem;
 }
 
-/* Main content styles */
-main {
+.projects {
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 2rem;
-    width: 100%;
-}
-
-.projects {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 1.5rem;
     max-width: 1200px;
     width: 100%;
     padding: 2rem 0;
 }
 
-/* Card styles */
 .card {
-    background-color: #1a1a1a;
+    background-color: #222;
     border: 1px solid #ff4d4d;
     border-radius: 8px;
-    box-shadow: 0px 4px 10px rgba(255, 77, 77, 0.3);
-    overflow: hidden;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
     padding: 1.5rem;
     text-align: center;
-}
-
-.card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0px 8px 16px rgba(255, 77, 77, 0.5);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+    width: 80%;
 }
 
 .card a {
     color: #ff4d4d;
     text-decoration: none;
-    font-size: 1.5em;
-    transition: color 0.3s ease;
+    font-size: 1.2em;
 }
 
-.card a:hover {
-    color: #ff6666;
-}
-
-.card h3 {
-    margin: 0.5rem 0;
-    color: #ff4d4d;
-}
-
-/* Responsive styles */
-@media (max-width: 768px) {
-    header h1 {
-        font-size: 2.5em;
-    }
-    
-    header p {
-        font-size: 1em;
-    }
-
-    .projects {
-        padding: 1rem;
-    }
-
-    .card {
-        padding: 1rem;
-    }
+.card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0px 8px 16px rgba(255, 77, 77, 0.5);
 }
