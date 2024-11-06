@@ -77,6 +77,11 @@ main {
     text-align: center;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     cursor: pointer;
+    display: flex; /* Flex container */
+    align-items: center; /* Centers content vertically */
+    justify-content: center; /* Centers content horizontally */
+    flex-direction: column; /* Ensures text stacks vertically if needed */
+    min-height: 150px; /* Ajusta la altura mínima de la tarjeta si es necesario */
 }
 
 .card a {
