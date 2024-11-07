@@ -1,0 +1,133 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html, body {
+    font-family: 'Press Start 2P', monospace;
+    background: #1a1a1a;
+    color: #ff4d4d;
+    overflow-x: hidden; /* Evita desplazamiento lateral */
+    width: 100vw; /* Asegura que el ancho no sobrepase el viewport */
+    height: 100vh; /* Asegura que el alto no sobrepase el viewport */
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    overflow-y: hidden; /* Evita desplazamiento vertical si no es necesario */
+    min-height: 100vh;
+}
+
+/* Header styles */
+header {
+    text-align: center;
+    padding: 2rem;
+    width: 100%;
+    border-bottom: 2px solid #ff4d4d;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+}
+
+header h1 {
+    font-size: 2.5em;
+    color: #ff4d4d;
+    margin: 0;
+    text-align: center;
+}
+
+header p {
+    color: #d3d3d3;
+    font-size: 1em;
+    margin-top: 0.5rem;
+    text-align: center;
+}
+
+/* Flecha para volver atrás */
+.back-arrow {
+    display: inline-block;
+    font-size: 1.5em;
+    color: #ff4d4d;
+    text-decoration: none;
+    margin-top: 1rem;
+    margin-left: 2rem;
+    padding: 0.5rem 1rem;
+    background-color: #222;
+    border-radius: 8px;
+    transition: background-color 0.3s ease;
+}
+
+.back-arrow:hover {
+    background-color: #ff4d4d;
+    color: #fff;
+}
+
+/* Main content styles */
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2rem;
+    width: 100%;
+}
+
+.projects {
+    display: grid;
+    grid-template-columns: 1fr; /* Una columna para la página de análisis */
+    gap: 1.5rem;
+    max-width: 1200px;
+    width: 100%;
+    padding: 2rem 0;
+}
+
+/* Card styles */
+.card {
+    opacity: 0;
+    transform: translateY(20px);
+    background-color: #222;
+    border: 1px solid #ff4d4d;
+    border-radius: 8px;
+    padding: 1.5rem;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+    display: flex; /* Flex container */
+    align-items: center; /* Centers content vertically */
+    justify-content: center; /* Centers content horizontally */
+    flex-direction: column; /* Ensures text stacks vertically if needed */
+    min-height: 150px; /* Ajusta la altura mínima de la tarjeta si es necesario */
+    animation: fadeInUp 0.6s ease-out forwards;
+}
+
+/* Fade-in effect for cards */
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.card a {
+    color: #ff4d4d;
+    text-decoration: none;
+    font-size: 1.2em;
+}
+
+.card h3 {
+    margin: 0.5rem 0;
+    color: #ff4d4d;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0px 8px 16px rgba(255, 77, 77, 0.5);
+}
