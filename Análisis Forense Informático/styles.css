@@ -109,3 +109,7 @@ main {
 .card:hover .dropdown {
     display: flex;
 }
+
+a:focus {
+    outline: none;
+}
