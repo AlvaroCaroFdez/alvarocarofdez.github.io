@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Análisis Forense Informático - Tema 1</title>
     <link rel="icon" href="favicon.ico" type="image/x-icon">
-    <link rel="stylesheet" href="styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
@@ -18,12 +17,11 @@
 
         html, body {
             font-family: 'Press Start 2P', monospace;
-            background: #18181b;
+            background: #1a1a1a;
             color: #ff4d4d;
-            overflow-x: hidden;
-            width: 100vw;
-            height: 100vh;
-            transition: all 0.5s ease;
+            overflow-x: hidden; /* Evita desplazamiento lateral */
+            width: 100vw; /* Asegura que el ancho no sobrepase el viewport */
+            height: 100vh; /* Asegura que el alto no sobrepase el viewport */
         }
 
         body {
@@ -31,222 +29,107 @@
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            overflow-y: hidden;
+            overflow-y: hidden; /* Evita desplazamiento vertical si no es necesario */
             min-height: 100vh;
         }
 
-        header {
-            text-align: center;
-            padding: 2rem;
-            width: 100%;
-            border-bottom: 2px solid #ff4d4d;
+        .container {
             display: flex;
             flex-direction: column;
             align-items: center;
-            justify-content: center;
-            position: relative;
-            overflow: hidden;
+            width: 100%;
+            padding: 1rem;
+            max-width: 900px;
+            margin: 0 auto;
         }
 
-        header h1 {
-            font-size: 3rem;
+        h1 {
+            font-size: 2.5em;
             color: #ff4d4d;
-            margin: 0;
+            text-align: center;
+            margin-bottom: 1rem;
         }
 
-        header p {
-            color: #d3d3d3;
-            font-size: 1rem;
-            margin-top: 0.5rem;
-        }
-
-        /* Ripple Effect */
-        header .ripple {
-            position: absolute;
-            border-radius: 50%;
-            background: rgba(255, 77, 77, 0.5);
-            transform: scale(0);
-            animation: ripple 0.6s linear;
-            pointer-events: none;
-        }
-
-        @keyframes ripple {
-            to {
-                transform: scale(4);
-                opacity: 0;
-            }
-        }
-
-        /* Main content styles */
-        main {
+        .topics-container {
             display: flex;
             flex-direction: column;
             align-items: center;
-            padding: 2rem;
             width: 100%;
         }
 
-        .projects {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 1.5rem;
-            max-width: 1200px;
-            width: 100%;
-            padding: 2rem 0;
-        }
-
-        .card {
+        .topic {
             background-color: #222;
-            border: 1px solid #ff4d4d;
-            border-radius: 8px;
-            padding: 1.5rem;
-            text-align: center;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            cursor: pointer;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            min-height: 300px;
-            position: relative;
-        }
-
-        .card h3 {
-            margin: 0.5rem 0;
+            border: 2px solid #ff4d4d;
+            border-radius: 12px;
+            padding: 1rem;
+            width: 80%;
+            max-width: 600px;
+            margin: 1rem;
             color: #ff4d4d;
+            text-align: center;
+            cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0px 4px 8px rgba(255, 77, 77, 0.3);
         }
 
-        .card:hover {
-            transform: translateY(-10px);
+        .topic:hover {
+            transform: translateY(-5px);
             box-shadow: 0px 8px 16px rgba(255, 77, 77, 0.5);
         }
 
-        .dropdown-content {
-            display: none;
-            flex-direction: column;
-            align-items: center;
-            margin-top: 1rem;
+        .topic h2 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
         }
 
-        .card:hover .dropdown-content {
-            display: flex;
-        }
-
-        .card a {
-            color: #ff4d4d;
-            text-decoration: none;
-            font-size: 1em;
+        .project {
+            background-color: #333;
+            border: 1px solid #ff4d4d;
+            border-radius: 8px;
+            padding: 1rem;
             margin: 0.5rem 0;
-        }
-
-        .card a:hover {
-            text-decoration: underline;
-        }
-
-        .dropdown-section {
-            margin-top: 1rem;
-        }
-
-        .dropdown-section h4 {
+            text-align: center;
             color: #ff4d4d;
+            cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .project:hover {
+            transform: translateY(-5px);
+            box-shadow: 0px 4px 8px rgba(255, 77, 77, 0.5);
+        }
+
+        .project-title {
+            font-weight: bold;
             margin-bottom: 0.5rem;
         }
 
-        /* Animaciones para el deslizamiento */
-        @keyframes slideIn {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .card {
-            opacity: 0;
-            animation: slideIn 0.6s ease-out forwards;
-        }
-
-        /* Control de animación de tarjetas */
-        .card:nth-child(1) {
-            animation-delay: 0.2s;
-        }
-
-        .card:nth-child(2) {
-            animation-delay: 0.4s;
-        }
-
-        .card:nth-child(3) {
-            animation-delay: 0.6s;
+        .project-description {
+            font-size: 0.9rem;
         }
 
     </style>
 </head>
 <body>
-    <header>
+    <div class="container">
         <h1>Análisis Forense Informático</h1>
-    </header>
-    
-    <main>
-        <section class="projects">
-            <div class="card" data-title="Tema 1">
-                <h3>Tema 1: Evidence Acquisition</h3>
-                <div class="dropdown-content">
-                    <div class="dropdown-section">
-                        <h4>Proyectos</h4>
-                        <a href="proyecto1.html">Proyecto 1</a>
-                        <a href="proyecto2.html">Proyecto 2</a>
-                        <a href="proyecto3.html">Proyecto 3</a>
-                    </div>
-                    <div class="dropdown-section">
-                        <h4>Actividades</h4>
-                        <a href="actividad1.html">Actividad 1</a>
-                        <a href="actividad2.html">Actividad 2</a>
-                        <a href="actividad3.html">Actividad 3</a>
-                    </div>
+        <div class="topics-container">
+            <div class="topic">
+                <h2>Tema 1: Evidence Acquisition and Preservation</h2>
+                <div class="project" onclick="window.open('https://github.com/IES-Rafael-Alberti/P01-G01---Analisis-Forense', '_blank');">
+                    <div class="project-title">Proyecto 1</div>
+                    <div class="project-description">Development of a Forensic Analysis Methodology.</div>
+                </div>
+                <div class="project" onclick="window.open('https://yerayag.github.io/A05-analisis-forense/', '_blank');">
+                    <div class="project-title">Proyecto A05</div>
+                    <div class="project-description">Proyecto de Adquisición de una memoria USB.</div>
+                </div>
+                <div class="project" onclick="window.open('#', '_blank');">
+                    <div class="project-title">Proyecto 2</div>
+                    <div class="project-description">Coming Soon.</div>
                 </div>
             </div>
-        </section>
-    </main>
-
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            // Efecto Ripple en el header
-            const header = document.querySelector('header');
-            header.addEventListener('click', function (e) {
-                const ripple = document.createElement('span');
-                const size = Math.max(header.clientWidth, header.clientHeight);
-                const x = e.clientX - header.offsetLeft - size / 2;
-                const y = e.clientY - header.offsetTop - size / 2;
-
-                ripple.style.width = ripple.style.height = `${size}px`;
-                ripple.style.left = `${x}px`;
-                ripple.style.top = `${y}px`;
-                ripple.classList.add('ripple');
-
-                header.appendChild(ripple);
-
-                setTimeout(() => {
-                    ripple.remove();
-                }, 600);
-            });
-
-            // Función para mostrar las tarjetas con animación al hacer scroll
-            const cards = document.querySelectorAll('.card');
-            function animateCards() {
-                cards.forEach((card) => {
-                    const rect = card.getBoundingClientRect();
-                    if (rect.top < window.innerHeight) {
-                        card.style.opacity = 1;
-                        card.style.transform = 'translateY(0)';
-                    }
-                });
-            }
-            window.addEventListener('scroll', animateCards);
-            animateCards();
-        });
-    </script>
+        </div>
+    </div>
 </body>
 </html>
