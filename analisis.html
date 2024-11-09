@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Análisis Forense Informático</title>
+    <title>Análisis Forense Informático - Tema 1</title>
     <link rel="icon" href="favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
@@ -125,7 +125,7 @@
             align-items: center; /* Centers content vertically */
             justify-content: center; /* Centers content horizontally */
             flex-direction: column; /* Ensures text stacks vertically if needed */
-            min-height: 150px; /* Ajusta la altura mínima de la tarjeta si es necesario */
+            min-height: 300px; /* Ajusta la altura mínima de la tarjeta */
             animation: fadeInUp 0.6s ease-out forwards;
             animation-delay: 0s;
             position: relative;
@@ -190,6 +190,15 @@
         .card a:hover {
             text-decoration: underline;
         }
+
+        .dropdown-section {
+            margin-top: 1rem;
+        }
+
+        .dropdown-section h4 {
+            color: #ff4d4d;
+            margin-bottom: 0.5rem;
+        }
     </style>
 </head>
 <body>
@@ -204,9 +213,18 @@
             <div class="card" data-title="Tema 1">
                 <h3>Tema 1</h3>
                 <div class="dropdown-content">
-                    <a href="https://github.com/IES-Rafael-Alberti/P01-G01---Analisis-Forense/tree/main">Proyecto 1</a>
-                    <a href="proyecto2.html">Proyecto 2</a>
-                    <a href="proyecto3.html">Proyecto 3</a>
+                    <div class="dropdown-section">
+                        <h4>Proyectos</h4>
+                        <a href="proyecto1.html">Proyecto 1</a>
+                        <a href="proyecto2.html">Proyecto 2</a>
+                        <a href="proyecto3.html">Proyecto 3</a>
+                    </div>
+                    <div class="dropdown-section">
+                        <h4>Actividades</h4>
+                        <a href="actividad1.html">Actividad 1</a>
+                        <a href="actividad2.html">Actividad 2</a>
+                        <a href="actividad3.html">Actividad 3</a>
+                    </div>
                 </div>
             </div>
         </section>
