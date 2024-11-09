@@ -8,25 +8,28 @@
     <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
 </head>
 <body>
-    <a href="index.html" class="back-button">🔙</a>
+    <!-- Botón para regresar a la página principal con ícono de flecha -->
+    <a href="index.html" class="back-button">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M15 18L9 12L15 6" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+    </a>
 
     <header>
         <div class="header-content">
             <h1>Análisis Forense Informático</h1>
+            <p>Proyecto de investigación y desarrollo en análisis forense</p>
         </div>
     </header>
     
     <main>
         <section class="projects">
-            <!-- Única tarjeta para el proyecto -->
-            <div class="card" data-title="Análisis Forense Informático">
-                <a href="#">
-                    <h3>Análisis Forense Informático</h3>
-                </a>
+            <div class="card">
+                <h3>Análisis Forense Informático</h3>
+                <p>Descripción del proyecto en detalle...</p>
             </div>
         </section>
     </main>
 
     <script src="animations.js"></script>
 </body>
-</html>
