@@ -10,9 +10,9 @@ html, body {
     font-family: 'Press Start 2P', monospace;
     background: #1a1a1a;
     color: #ff4d4d;
-    overflow-x: hidden; /* Evita desplazamiento lateral */
-    width: 100vw; /* Asegura que el ancho no sobrepase el viewport */
-    height: 100vh; /* Asegura que el alto no sobrepase el viewport */
+    overflow-x: hidden;
+    width: 100vw;
+    height: 100vh;
 }
 
 body {
@@ -20,11 +20,10 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    overflow-y: hidden; /* Evita desplazamiento vertical si no es necesario */
+    overflow-y: hidden;
     min-height: 100vh;
 }
 
-/* Header styles */
 header {
     text-align: center;
     padding: 2rem;
@@ -52,24 +51,6 @@ header p {
     text-align: center;
 }
 
-/* Ripple Effect */
-header .ripple {
-    position: absolute;
-    border-radius: 50%;
-    background: rgba(255, 77, 77, 0.5);
-    transform: scale(0);
-    animation: ripple 0.6s linear;
-    pointer-events: none;
-}
-
-@keyframes ripple {
-    to {
-        transform: scale(4);
-        opacity: 0;
-    }
-}
-
-/* Main content styles */
 main {
     display: flex;
     flex-direction: column;
@@ -79,31 +60,14 @@ main {
 }
 
 .projects {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1.5rem;
-    max-width: 1200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     width: 100%;
     padding: 2rem 0;
 }
 
-/* Responsividad para diferentes tamaños de pantalla */
-@media (max-width: 992px) {
-    .projects {
-        grid-template-columns: repeat(2, 1fr); /* Dos columnas en pantallas medianas */
-    }
-}
-
-@media (max-width: 600px) {
-    .projects {
-        grid-template-columns: 1fr; /* Una columna en pantallas pequeñas */
-    }
-}
-
-/* Card styles */
 .card {
-    opacity: 0;
-    transform: translateY(20px);
     background-color: #222;
     border: 1px solid #ff4d4d;
     border-radius: 8px;
@@ -111,40 +75,12 @@ main {
     text-align: center;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     cursor: pointer;
-    display: flex; /* Flex container */
-    align-items: center; /* Centers content vertically */
-    justify-content: center; /* Centers content horizontally */
-    flex-direction: column; /* Ensures text stacks vertically if needed */
-    min-height: 150px; /* Ajusta la altura mínima de la tarjeta si es necesario */
-    animation: fadeInUp 0.6s ease-out forwards;
-    animation-delay: 0s;
-}
-
-/* Retrasar la animación de las tarjetas */
-.card:nth-child(1) {
-    animation-delay: 0.2s;
-}
-
-.card:nth-child(2) {
-    animation-delay: 0.4s;
-}
-
-.card:nth-child(3) {
-    animation-delay: 0.6s;
-}
-
-/* Fade-in effect for cards */
-@keyframes fadeInUp {
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-.card a {
-    color: #ff4d4d;
-    text-decoration: none;
-    font-size: 1.2em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 150px;
+    position: relative;
 }
 
 .card h3 {
@@ -152,7 +88,24 @@ main {
     color: #ff4d4d;
 }
 
+.card .dropdown {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 1rem;
+}
+
+.card .dropdown a {
+    color: #ff4d4d;
+    text-decoration: none;
+    margin: 0.5rem 0;
+}
+
 .card:hover {
     transform: translateY(-10px);
     box-shadow: 0px 8px 16px rgba(255, 77, 77, 0.5);
+}
+
+.card:hover .dropdown {
+    display: flex;
 }
