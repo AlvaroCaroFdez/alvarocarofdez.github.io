@@ -18,11 +18,12 @@
 
         html, body {
             font-family: 'Press Start 2P', monospace;
-            background: #1a1a1a;
+            background: #18181b;
             color: #ff4d4d;
-            overflow-x: hidden; /* Evita desplazamiento lateral */
-            width: 100vw; /* Asegura que el ancho no sobrepase el viewport */
-            height: 100vh; /* Asegura que el alto no sobrepase el viewport */
+            overflow-x: hidden;
+            width: 100vw;
+            height: 100vh;
+            transition: all 0.5s ease;
         }
 
         body {
@@ -30,11 +31,10 @@
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            overflow-y: hidden; /* Evita desplazamiento vertical si no es necesario */
+            overflow-y: hidden;
             min-height: 100vh;
         }
 
-        /* Header styles */
         header {
             text-align: center;
             padding: 2rem;
@@ -49,17 +49,15 @@
         }
 
         header h1 {
-            font-size: 2.5em;
+            font-size: 3rem;
             color: #ff4d4d;
             margin: 0;
-            text-align: center;
         }
 
         header p {
             color: #d3d3d3;
-            font-size: 1em;
+            font-size: 1rem;
             margin-top: 0.5rem;
-            text-align: center;
         }
 
         /* Ripple Effect */
@@ -97,7 +95,6 @@
             padding: 2rem 0;
         }
 
-        /* Card styles */
         .card {
             background-color: #222;
             border: 1px solid #ff4d4d;
@@ -124,7 +121,6 @@
             box-shadow: 0px 8px 16px rgba(255, 77, 77, 0.5);
         }
 
-        /* Estilos para el contenido desplegable */
         .dropdown-content {
             display: none;
             flex-direction: column;
@@ -155,19 +151,48 @@
             color: #ff4d4d;
             margin-bottom: 0.5rem;
         }
+
+        /* Animaciones para el deslizamiento */
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .card {
+            opacity: 0;
+            animation: slideIn 0.6s ease-out forwards;
+        }
+
+        /* Control de animación de tarjetas */
+        .card:nth-child(1) {
+            animation-delay: 0.2s;
+        }
+
+        .card:nth-child(2) {
+            animation-delay: 0.4s;
+        }
+
+        .card:nth-child(3) {
+            animation-delay: 0.6s;
+        }
+
     </style>
 </head>
 <body>
     <header>
-        <div class="header-content">
-            <h1>Análisis Forense Informático</h1>
-        </div>
+        <h1>Análisis Forense Informático</h1>
     </header>
     
     <main>
         <section class="projects">
             <div class="card" data-title="Tema 1">
-                <h3>Tema 1</h3>
+                <h3>Tema 1: Evidence Acquisition</h3>
                 <div class="dropdown-content">
                     <div class="dropdown-section">
                         <h4>Proyectos</h4>
@@ -188,32 +213,8 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', function () {
-            // Selecciona todas las tarjetas y el header
-            const cards = document.querySelectorAll('.card');
+            // Efecto Ripple en el header
             const header = document.querySelector('header');
-
-            // Función para mostrar las tarjetas con animación al hacer scroll
-            function animateCards() {
-                cards.forEach((card, index) => {
-                    const rect = card.getBoundingClientRect();
-                    if (rect.top < window.innerHeight) {
-                        card.style.opacity = 1;
-                        card.style.transform = 'translateY(0)';
-                        card.style.transitionDelay = `${index * 100}ms`; // Retardo para cada tarjeta
-                    }
-                });
-            }
-
-            // Llama a la animación de tarjetas en el scroll
-            window.addEventListener('scroll', animateCards);
-
-            // Establece el estilo inicial de cada tarjeta
-            cards.forEach(card => {
-                card.style.opacity = 0;
-                card.style.transform = 'translateY(20px)';
-            });
-
-            // Efecto ripple en el header
             header.addEventListener('click', function (e) {
                 const ripple = document.createElement('span');
                 const size = Math.max(header.clientWidth, header.clientHeight);
@@ -227,11 +228,24 @@
 
                 header.appendChild(ripple);
 
-                // Elimina el efecto después de un tiempo
                 setTimeout(() => {
                     ripple.remove();
                 }, 600);
             });
+
+            // Función para mostrar las tarjetas con animación al hacer scroll
+            const cards = document.querySelectorAll('.card');
+            function animateCards() {
+                cards.forEach((card) => {
+                    const rect = card.getBoundingClientRect();
+                    if (rect.top < window.innerHeight) {
+                        card.style.opacity = 1;
+                        card.style.transform = 'translateY(0)';
+                    }
+                });
+            }
+            window.addEventListener('scroll', animateCards);
+            animateCards();
         });
     </script>
 </body>
