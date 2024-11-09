@@ -90,30 +90,15 @@
 
         .projects {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
+            grid-template-columns: 1fr;
             gap: 1.5rem;
             max-width: 1200px;
             width: 100%;
             padding: 2rem 0;
         }
 
-        /* Responsividad para diferentes tamaños de pantalla */
-        @media (max-width: 992px) {
-            .projects {
-                grid-template-columns: repeat(2, 1fr); /* Dos columnas en pantallas medianas */
-            }
-        }
-
-        @media (max-width: 600px) {
-            .projects {
-                grid-template-columns: 1fr; /* Una columna en pantallas pequeñas */
-            }
-        }
-
         /* Card styles */
         .card {
-            opacity: 0;
-            transform: translateY(20px);
             background-color: #222;
             border: 1px solid #ff4d4d;
             border-radius: 8px;
@@ -121,41 +106,12 @@
             text-align: center;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
             cursor: pointer;
-            display: flex; /* Flex container */
-            align-items: center; /* Centers content vertically */
-            justify-content: center; /* Centers content horizontally */
-            flex-direction: column; /* Ensures text stacks vertically if needed */
-            min-height: 300px; /* Ajusta la altura mínima de la tarjeta */
-            animation: fadeInUp 0.6s ease-out forwards;
-            animation-delay: 0s;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 300px;
             position: relative;
-        }
-
-        /* Retrasar la animación de las tarjetas */
-        .card:nth-child(1) {
-            animation-delay: 0.2s;
-        }
-
-        .card:nth-child(2) {
-            animation-delay: 0.4s;
-        }
-
-        .card:nth-child(3) {
-            animation-delay: 0.6s;
-        }
-
-        /* Fade-in effect for cards */
-        @keyframes fadeInUp {
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .card a {
-            color: #ff4d4d;
-            text-decoration: none;
-            font-size: 1.2em;
         }
 
         .card h3 {
