@@ -1,28 +1,30 @@
-/* Botón de regreso a la página principal */
-.back-button {
-    position: absolute;
-    top: 20px;
-    left: 20px;
-    background-color: transparent; /* Fondo transparente */
-    padding: 0.5rem;
-    border-radius: 50%;
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html, body {
+    font-family: 'Press Start 2P', monospace;
+    background: #1a1a1a;
+    color: #ff4d4d;
+    overflow-x: hidden; /* Evita desplazamiento lateral */
+    width: 100vw; /* Asegura que el ancho no sobrepase el viewport */
+    height: 100vh; /* Asegura que el alto no sobrepase el viewport */
+}
+
+body {
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
-    transition: background-color 0.3s;
+    overflow-y: hidden; /* Evita desplazamiento vertical si no es necesario */
+    min-height: 100vh;
 }
 
-.back-button:hover {
-    background-color: rgba(255, 77, 77, 0.1); /* Efecto sutil al pasar el cursor */
-}
-
-.back-button svg {
-    width: 32px;
-    height: 32px;
-    stroke: #ff4d4d; /* Mismo color rojo que el texto */
-}
-
-/* Header styles (mismo estilo que en la página principal) */
+/* Header styles */
 header {
     text-align: center;
     padding: 2rem;
@@ -32,39 +34,125 @@ header {
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    position: relative;
+    overflow: hidden;
 }
 
 header h1 {
     font-size: 2.5em;
     color: #ff4d4d;
     margin: 0;
+    text-align: center;
 }
 
 header p {
     color: #d3d3d3;
     font-size: 1em;
     margin-top: 0.5rem;
+    text-align: center;
 }
 
-/* Estilos de la tarjeta */
-.projects {
+/* Ripple Effect */
+header .ripple {
+    position: absolute;
+    border-radius: 50%;
+    background: rgba(255, 77, 77, 0.5);
+    transform: scale(0);
+    animation: ripple 0.6s linear;
+    pointer-events: none;
+}
+
+@keyframes ripple {
+    to {
+        transform: scale(4);
+        opacity: 0;
+    }
+}
+
+/* Main content styles */
+main {
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    align-items: center;
     padding: 2rem;
+    width: 100%;
 }
 
+.projects {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    max-width: 1200px;
+    width: 100%;
+    padding: 2rem 0;
+}
+
+/* Responsividad para diferentes tamaños de pantalla */
+@media (max-width: 992px) {
+    .projects {
+        grid-template-columns: repeat(2, 1fr); /* Dos columnas en pantallas medianas */
+    }
+}
+
+@media (max-width: 600px) {
+    .projects {
+        grid-template-columns: 1fr; /* Una columna en pantallas pequeñas */
+    }
+}
+
+/* Card styles */
 .card {
+    opacity: 0;
+    transform: translateY(20px);
     background-color: #222;
     border: 1px solid #ff4d4d;
     border-radius: 8px;
     padding: 1.5rem;
     text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+    display: flex; /* Flex container */
+    align-items: center; /* Centers content vertically */
+    justify-content: center; /* Centers content horizontally */
+    flex-direction: column; /* Ensures text stacks vertically if needed */
+    min-height: 150px; /* Ajusta la altura mínima de la tarjeta si es necesario */
+    animation: fadeInUp 0.6s ease-out forwards;
+    animation-delay: 0s;
+}
+
+/* Retrasar la animación de las tarjetas */
+.card:nth-child(1) {
+    animation-delay: 0.2s;
+}
+
+.card:nth-child(2) {
+    animation-delay: 0.4s;
+}
+
+.card:nth-child(3) {
+    animation-delay: 0.6s;
+}
+
+/* Fade-in effect for cards */
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.card a {
     color: #ff4d4d;
-    max-width: 500px;
-    margin-top: 1rem;
+    text-decoration: none;
+    font-size: 1.2em;
 }
 
 .card h3 {
     margin: 0.5rem 0;
-    font-size: 1.5em;
+    color: #ff4d4d;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0px 8px 16px rgba(255, 77, 77, 0.5);
 }
