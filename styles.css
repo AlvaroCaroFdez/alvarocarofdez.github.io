@@ -39,3 +39,8 @@ h2 {
 .subject:hover {
     color: #ff5555;
 }
+
+.subject.animated {
+    transform: translateY(-10px);
+    transition: transform 0.3s ease;
+}
