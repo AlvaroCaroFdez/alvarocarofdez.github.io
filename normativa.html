@@ -21,24 +21,21 @@
             color: #ff4d4d;
             overflow-x: hidden; /* Evita desplazamiento lateral */
             width: 100vw; /* Asegura que el ancho no sobrepase el viewport */
-            height: 100vh; /* Asegura que el alto no sobrepase el viewport */
         }
 
         body {
             display: flex;
             flex-direction: column;
             align-items: center;
-            justify-content: center;
-            overflow-y: hidden; /* Evita desplazamiento vertical si no es necesario */
-            min-height: 100vh;
+            min-height: 100vh; /* Mantener altura mínima */
         }
 
         .container {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
+            display: grid; /* Activar diseño en cuadrícula */
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* 2 columnas si hay espacio */
+            gap: 20px; /* Espaciado entre elementos */
             width: 100%;
-            padding: 1rem;
+            padding: 2rem;
             max-width: 900px;
             margin: 0 auto;
         }
@@ -47,14 +44,8 @@
             font-size: 2.5em;
             color: #ff4d4d;
             text-align: center;
-            margin-bottom: 1rem;
-        }
-
-        .topics-container {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            width: 100%;
+            margin-bottom: 2rem;
+            grid-column: 1 / -1; /* Asegurar que el título ocupa todo el ancho */
         }
 
         .topic {
@@ -62,9 +53,6 @@
             border: 2px solid #ff4d4d;
             border-radius: 12px;
             padding: 1rem;
-            width: 80%;
-            max-width: 600px;
-            margin: 1rem;
             color: #ff4d4d;
             text-align: center;
             cursor: pointer;
@@ -107,33 +95,30 @@
         .project-description {
             font-size: 0.9rem;
         }
-
     </style>
 </head>
 <body>
     <div class="container">
         <h1>Normativa de Ciberseguridad</h1>
-        <div class="topics-container">
-            <div class="topic">
-                <h2>Unidad 0: Fundamentos Jurídicos de la Seguridad Informática</h2>
-                <div class="project" onclick="window.open('', '_blank');">
-                    <div class="project-title">Actividad 1</div>
-                    <div class="project-description">Actividades de presentación.</div>
-                </div>
+        <div class="topic">
+            <h2>Unidad 0: Fundamentos Jurídicos de la Seguridad Informática</h2>
+            <div class="project" onclick="window.open('', '_blank');">
+                <div class="project-title">Actividad 1</div>
+                <div class="project-description">Actividades de presentación.</div>
             </div>
-            <div class="topic">
-                <h2>Unidad 1: Principios y Buenas Prácticas de la Seguridad de la Información</h2>
-                <div class="project" onclick="window.open('https://github.com/IES-Rafael-Alberti/24-25--Grupo1--Ciberseguridad/blob/main/Normativa%20de%20ciberseguridad/Proyecto%20Normativa%20-%20Caso%20practico%20referencias%20normativas.md', '_blank');">
-                    <div class="project-title">Actividad 1</div>
-                    <div class="project-description">Caso práctico referencias normativas.</div>
-                </div>
+        </div>
+        <div class="topic">
+            <h2>Unidad 1: Principios y Buenas Prácticas de la Seguridad de la Información</h2>
+            <div class="project" onclick="window.open('https://github.com/IES-Rafael-Alberti/24-25--Grupo1--Ciberseguridad/blob/main/Normativa%20de%20ciberseguridad/Proyecto%20Normativa%20-%20Caso%20practico%20referencias%20normativas.md', '_blank');">
+                <div class="project-title">Actividad 1</div>
+                <div class="project-description">Caso práctico referencias normativas.</div>
             </div>
-            <div class="topic">
-                <h2>Unidad 2: Gestión de Riesgos</h2>
-                <div class="project" onclick="window.open('https://github.com/IES-Rafael-Alberti/24-25--Grupo1--Ciberseguridad/blob/main/Normativa%20de%20ciberseguridad/Gestion%20de%20riesgos.md', '_blank');">
-                    <div class="project-title">PEC 2</div>
-                    <div class="project-description">Familiarización con los análisis de riesgos.</div>
-                </div>
+        </div>
+        <div class="topic">
+            <h2>Unidad 2: Gestión de Riesgos</h2>
+            <div class="project" onclick="window.open('https://github.com/IES-Rafael-Alberti/24-25--Grupo1--Ciberseguridad/blob/main/Normativa%20de%20ciberseguridad/Gestion%20de%20riesgos.md', '_blank');">
+                <div class="project-title">PEC 2</div>
+                <div class="project-description">Familiarización con los análisis de riesgos.</div>
             </div>
         </div>
     </div>
