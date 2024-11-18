@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Normativa de Ciberseguridad</title>
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html, body {
+            font-family: 'Press Start 2P', monospace;
+            background: #1a1a1a;
+            color: #ff4d4d;
+            overflow-x: hidden; /* Evita desplazamiento lateral */
+            width: 100vw; /* Asegura que el ancho no sobrepase el viewport */
+            height: 100vh; /* Asegura que el alto no sobrepase el viewport */
+        }
+
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            overflow-y: hidden; /* Evita desplazamiento vertical si no es necesario */
+            min-height: 100vh;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+            padding: 1rem;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            font-size: 2.5em;
+            color: #ff4d4d;
+            text-align: center;
+            margin-bottom: 1rem;
+        }
+
+        .topics-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+        }
+
+        .topic {
+            background-color: #222;
+            border: 2px solid #ff4d4d;
+            border-radius: 12px;
+            padding: 1rem;
+            width: 80%;
+            max-width: 600px;
+            margin: 1rem;
+            color: #ff4d4d;
+            text-align: center;
+            cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0px 4px 8px rgba(255, 77, 77, 0.3);
+        }
+
+        .topic:hover {
+            transform: translateY(-5px);
+            box-shadow: 0px 8px 16px rgba(255, 77, 77, 0.5);
+        }
+
+        .topic h2 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .project {
+            background-color: #333;
+            border: 1px solid #ff4d4d;
+            border-radius: 8px;
+            padding: 1rem;
+            margin: 0.5rem 0;
+            text-align: center;
+            color: #ff4d4d;
+            cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .project:hover {
+            transform: translateY(-5px);
+            box-shadow: 0px 4px 8px rgba(255, 77, 77, 0.5);
+        }
+
+        .project-title {
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+
+        .project-description {
+            font-size: 0.9rem;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Normativa de Ciberseguridad</h1>
+        <div class="topics-container">
+            <div class="topic">
+                <h2>Unidad 0: Fundamentos Jurídicos de la Seguridad Informática</h2>
+                <div class="project" onclick="window.open('', '_blank');">
+                    <div class="project-title">Actividad 1</div>
+                    <div class="project-description">Actividades de presentación.</div>
+                </div>
+            </div>
+          <div class="topics-container">
+            <div class="topic">
+                <h2>Unidad 1: Principios y Buenas Prácticas de la Seguridad de la Información</h2>
+                <div class="project" onclick="window.open('https://github.com/IES-Rafael-Alberti/24-25--Grupo1--Ciberseguridad/blob/main/Normativa%20de%20ciberseguridad/Proyecto%20Normativa%20-%20Caso%20practico%20referencias%20normativas.md', '_blank');">
+                    <div class="project-title">Actividad 1</div>
+                    <div class="project-description">Caso práctico referencias normativas.</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
