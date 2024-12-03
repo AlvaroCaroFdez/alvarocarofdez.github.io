@@ -21,24 +21,21 @@
             color: #ff4d4d;
             overflow-x: hidden; /* Evita desplazamiento lateral */
             width: 100vw; /* Asegura que el ancho no sobrepase el viewport */
-            height: 100vh; /* Asegura que el alto no sobrepase el viewport */
         }
 
         body {
             display: flex;
             flex-direction: column;
             align-items: center;
-            justify-content: center;
-            overflow-y: hidden; /* Evita desplazamiento vertical si no es necesario */
-            min-height: 100vh;
+            min-height: 100vh; /* Mantener altura mínima */
         }
 
         .container {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
+            display: grid; /* Activar diseño en cuadrícula */
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* 2 columnas si hay espacio */
+            gap: 20px; /* Espaciado entre elementos */
             width: 100%;
-            padding: 1rem;
+            padding: 2rem;
             max-width: 900px;
             margin: 0 auto;
         }
@@ -47,14 +44,8 @@
             font-size: 2.5em;
             color: #ff4d4d;
             text-align: center;
-            margin-bottom: 1rem;
-        }
-
-        .topics-container {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            width: 100%;
+            margin-bottom: 2rem;
+            grid-column: 1 / -1; /* Asegurar que el título ocupa todo el ancho */
         }
 
         .topic {
@@ -62,9 +53,6 @@
             border: 2px solid #ff4d4d;
             border-radius: 12px;
             padding: 1rem;
-            width: 80%;
-            max-width: 600px;
-            margin: 1rem;
             color: #ff4d4d;
             text-align: center;
             cursor: pointer;
@@ -107,7 +95,6 @@
         .project-description {
             font-size: 0.9rem;
         }
-
     </style>
 </head>
 <body>
@@ -128,10 +115,14 @@
                     <div class="project-title">Proyecto 02.1</div>
                     <div class="project-description">Incident Investigation</div>
                 </div>
-                <div class="project" onclick="window.open('https://alvarocarofdez.github.io/A2.2-DrugTrafficking', '_blank');">
-                    <div class="project-title">Actividad 2.2 - Parte 1</div>
-                    <div class="project-description">Drug Trafficking</div>
-                </div>
+                
+            </div>
+            <div class="topic">
+                <h2>Unidad 2: Windows Forensics</h2>
+                    <div class="project" onclick="window.open('https://alvarocarofdez.github.io/A2.2-DrugTrafficking', '_blank');">
+                        <div class="project-title">Actividad 2.2 - Parte 1</div>
+                        <div class="project-description">Drug Trafficking</div>
+                    </div>
             </div>
         </div>
     </div>
