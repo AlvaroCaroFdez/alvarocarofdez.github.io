@@ -114,8 +114,36 @@
 
         .section-subtitle {
             font-size: 1.2rem;
-            margin-bottom: 2rem;
+            margin-bottom: 1rem;
             color: #ff4d4d;
+        }
+
+        /* Estilos para el cuadro de búsqueda */
+        .search-container {
+            margin: 1.5rem auto;
+            max-width: 500px;
+            position: relative;
+        }
+
+        .search-input {
+            width: 100%;
+            padding: 12px 20px;
+            font-family: 'Press Start 2P', monospace;
+            font-size: 0.8rem;
+            background-color: #333;
+            color: #ff4d4d;
+            border: 2px solid #ff4d4d;
+            border-radius: 8px;
+            outline: none;
+        }
+
+        .search-input::placeholder {
+            color: #ff4d4d;
+            opacity: 0.7;
+        }
+
+        .search-input:focus {
+            box-shadow: 0 0 8px rgba(255, 77, 77, 0.5);
         }
 
         .machines-grid {
@@ -195,6 +223,19 @@
         .machine-link:hover {
             background-color: #444;
         }
+
+        /* Estilo para cuando no hay resultados */
+        .no-results {
+            grid-column: 1 / -1;
+            text-align: center;
+            padding: 2rem;
+            font-size: 1rem;
+            color: #ff4d4d;
+            background-color: #222;
+            border: 2px solid #ff4d4d;
+            border-radius: 8px;
+            display: none;
+        }
     </style>
 </head>
 <body>
@@ -216,8 +257,13 @@
                 <h2 class="section-title">TryHackMe</h2>
                 <h3 class="section-subtitle">Máquinas Realizadas</h3>
                 
-                <div class="machines-grid">
-                    <div class="machine-card">
+                <!-- Añadido cuadro de búsqueda -->
+                <div class="search-container">
+                    <input type="text" id="searchMachines" class="search-input" placeholder="Buscar máquinas..." autocomplete="off">
+                </div>
+                
+                <div class="machines-grid" id="machinesGrid">
+                    <div class="machine-card" data-name="blue">
                         <img src="https://tryhackme-images.s3.amazonaws.com/room-icons/7717bbc69c486931e503a74f3192a4d8.gif" alt="Blue" class="machine-image">
                         <div class="machine-content">
                             <h3 class="machine-title">Blue</h3>
@@ -226,13 +272,27 @@
                         </div>
                     </div>
 
-                    <div class="machine-card">
-                        <img src="https://tryhackme-images.s3.amazonaws.com/room-icons/829892f5e7936a448f465b64d64f9c62.png" alt="Blue" class="machine-image">
+                    <div class="machine-card" data-name="ice">
+                        <img src="https://tryhackme-images.s3.amazonaws.com/room-icons/829892f5e7936a448f465b64d64f9c62.png" alt="Ice" class="machine-image">
                         <div class="machine-content">
                             <h3 class="machine-title">Ice</h3>
                             <a href="https://github.com/AlvaroCaroFdez/TryHackMe/blob/main/Ice/Ice.md" target="_blank" class="machine-link">Ver solución</a> <br> <br>
                             <a href="https://tryhackme.com/room/ice" target="_blank" class="machine-link">Ver máquina</a>
                         </div>
+                    </div>
+
+                    <div class="machine-card" data-name="blaster">
+                        <img src="https://tryhackme-images.s3.amazonaws.com/room-icons/07ad91ce2628efb8a2a3c5fddaeac710.png" alt="Blaster" class="machine-image">
+                        <div class="machine-content">
+                            <h3 class="machine-title">Blaster</h3>
+                            <a href="https://github.com/AlvaroCaroFdez/TryHackMe/blob/main/Blaster/Blaster.md" target="_blank" class="machine-link">Ver solución</a> <br> <br>
+                            <a href="https://tryhackme.com/room/blaster" target="_blank" class="machine-link">Ver máquina</a>
+                        </div>
+                    </div>
+                    
+                    <!-- Mensaje para cuando no hay resultados -->
+                    <div class="no-results" id="noResults">
+                        No se encontraron máquinas que coincidan con tu búsqueda.
                     </div>
                 </div>
             </div>
@@ -249,6 +309,38 @@
             if (!event.target.closest('.menu-container')) {
                 document.querySelector('.menu').classList.remove('active');
             }
+        });
+
+        // Script para la búsqueda de máquinas
+        document.addEventListener('DOMContentLoaded', function() {
+            const searchInput = document.getElementById('searchMachines');
+            const machineCards = document.querySelectorAll('.machine-card');
+            const noResults = document.getElementById('noResults');
+            
+            searchInput.addEventListener('input', function() {
+                const searchTerm = this.value.toLowerCase().trim();
+                let resultsFound = false;
+                
+                machineCards.forEach(card => {
+                    const machineName = card.getAttribute('data-name').toLowerCase();
+                    const machineTitle = card.querySelector('.machine-title').textContent.toLowerCase();
+                    
+                    // Buscar en el nombre de la máquina y en el título
+                    if (machineName.includes(searchTerm) || machineTitle.includes(searchTerm)) {
+                        card.style.display = 'block';
+                        resultsFound = true;
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+                
+                // Mostrar mensaje si no hay resultados
+                if (resultsFound) {
+                    noResults.style.display = 'none';
+                } else {
+                    noResults.style.display = 'block';
+                }
+            });
         });
     </script>
 </body>
