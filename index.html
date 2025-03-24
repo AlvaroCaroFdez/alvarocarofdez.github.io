@@ -4,37 +4,209 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Álvaro Caro Fernández - Proyectos de Ciberseguridad</title>
-    <link rel="stylesheet" href="styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html, body {
+            font-family: 'Press Start 2P', monospace;
+            background: #1a1a1a;
+            color: #ff4d4d;
+            overflow-x: hidden; 
+            width: 100vw;
+        }
+
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 2rem;
+            position: relative;
+        }
+
+        .home-icon {
+            position: absolute;
+            left: 20px;
+            top: 20px;
+            font-size: 24px;
+            color: #ff4d4d;
+            text-decoration: none;
+        }
+
+        .menu-container {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+        }
+
+        .menu-icon {
+            font-size: 24px;
+            cursor: pointer;
+            color: #ff4d4d;
+        }
+
+        .menu {
+            display: none;
+            position: absolute;
+            right: 0;
+            top: 100%;
+            background-color: #222;
+            border: 2px solid #ff4d4d;
+            border-radius: 8px;
+            padding: 10px;
+            z-index: 100;
+        }
+
+        .menu.active {
+            display: block;
+        }
+
+        .menu a {
+            display: block;
+            color: #ff4d4d;
+            text-decoration: none;
+            padding: 10px;
+            white-space: nowrap;
+        }
+
+        .menu a:hover {
+            background-color: #333;
+        }
+
+        h1 {
+            margin-bottom: 10px;
+            font-size: 2rem;
+        }
+
+        h2 {
+            margin-bottom: 40px;
+            font-size: 1.5rem;
+        }
+
+        hr {
+            border: 1px solid #ff4d4d;
+            margin: 1rem 0;
+        }
+
+        .subjects-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-template-rows: repeat(2, auto);
+            gap: 20px;
+            width: 100%;
+            margin-top: 2rem;
+        }
+
+        @media (max-width: 900px) {
+            .subjects-grid {
+                grid-template-columns: repeat(2, 1fr);
+                grid-template-rows: repeat(3, auto);
+            }
+        }
+
+        @media (max-width: 600px) {
+            .subjects-grid {
+                grid-template-columns: 1fr;
+                grid-template-rows: repeat(6, auto);
+            }
+        }
+
+        .subject-card {
+            background-color: #222;
+            border: 2px solid #ff4d4d;
+            border-radius: 12px;
+            padding: 1.5rem;
+            text-align: center;
+            cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0px 4px 8px rgba(255, 77, 77, 0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 150px;
+        }
+
+        .subject-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0px 8px 16px rgba(255, 77, 77, 0.5);
+        }
+
+        .subject-card a {
+            color: #ff4d4d;
+            text-decoration: none;
+            font-size: 1.1rem;
+            font-weight: bold;
+            text-align: center;
+        }
+    </style>
 </head>
 <body>
-    <header>
-        <h1>Álvaro Caro Fernández</h1>
-        <h2>Proyectos de Ciberseguridad</h2>
-        <hr>
-    </header>
-    <main>
-        <div class="subjects-grid">
-            <div class="subject-card">
-                <a href="normativa.html">Normativa de Ciberseguridad</a>
+    <div class="container">
+        <header>
+            <div class="menu-container">
+                <div class="menu-icon">☰</div>
+                <nav class="menu">
+                    <a href="https://github.com/AlvaroCaroFdez" target="_blank" rel="noopener noreferrer">Sobre mí</a>
+                    <a href="#subjects">Asignaturas</a>
+                </nav>
             </div>
-            <div class="subject-card">
-                <a href="analisis.html">Análisis Forense Informático</a>
+            <h1>Álvaro Caro Fernández</h1>
+            <h2>Proyectos de Ciberseguridad</h2>
+            <hr>
+        </header>
+        <main>
+            <div class="subjects-grid" id="subjects">
+                <div class="subject-card">
+                    <a href="normativa.html">Normativa de Ciberseguridad</a>
+                </div>
+                <div class="subject-card">
+                    <a href="analisis.html">Análisis Forense Informático</a>
+                </div>
+                <div class="subject-card">
+                    <a href="hacking.html">Hacking Ético</a>
+                </div>
+                <div class="subject-card">
+                    <a href="bastionado.html">Bastionado de Redes y Sistemas</a>
+                </div>
+                <div class="subject-card">
+                    <a href="incidentes.html">Incidentes de Ciberseguridad</a>
+                </div>
+                <div class="subject-card">
+                    <a href="produccion.html">Puesta en Producción Segura</a>
+                </div>
             </div>
-            <div class="subject-card">
-                <a href="hacking.html">Hacking Ético</a>
-            </div>
-            <div class="subject-card">
-                <a href="bastionado.html">Bastionado de Redes y Sistemas</a>
-            </div>
-            <div class="subject-card">
-                <a href="incidentes.html">Incidentes de Ciberseguridad</a>
-            </div>
-            <div class="subject-card">
-                <a href="produccion.html">Puesta en Producción Segura</a>
-            </div>
-        </div>
-    </main>
-    <script src="animations.js"></script>
+        </main>
+    </div>
+    <script>
+        // Script para el menú hamburguesa
+        document.querySelector('.menu-icon').addEventListener('click', function() {
+            document.querySelector('.menu').classList.toggle('active');
+        });
+
+        // Cerrar el menú cuando se hace clic fuera de él
+        document.addEventListener('click', function(event) {
+            if (!event.target.closest('.menu-container')) {
+                document.querySelector('.menu').classList.remove('active');
+            }
+        });
+    </script>
 </body>
-</html>
+</html> 
