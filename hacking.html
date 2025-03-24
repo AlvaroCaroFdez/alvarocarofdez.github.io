@@ -4,8 +4,159 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hacking Ético - Álvaro Caro Fernández</title>
-    <link rel="stylesheet" href="styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html, body {
+            font-family: 'Press Start 2P', monospace;
+            background: #1a1a1a;
+            color: #ff4d4d;
+            overflow-x: hidden; 
+            width: 100vw;
+        }
+
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 2rem;
+            position: relative;
+        }
+
+        .home-icon {
+            position: absolute;
+            left: 20px;
+            top: 20px;
+            font-size: 24px;
+            color: #ff4d4d;
+            text-decoration: none;
+        }
+
+        .menu-container {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+        }
+
+        .menu-icon {
+            font-size: 24px;
+            cursor: pointer;
+            color: #ff4d4d;
+        }
+
+        .menu {
+            display: none;
+            position: absolute;
+            right: 0;
+            top: 100%;
+            background-color: #222;
+            border: 2px solid #ff4d4d;
+            border-radius: 8px;
+            padding: 10px;
+            z-index: 100;
+        }
+
+        .menu.active {
+            display: block;
+        }
+
+        .menu a {
+            display: block;
+            color: #ff4d4d;
+            text-decoration: none;
+            padding: 10px;
+            white-space: nowrap;
+        }
+
+        .menu a:hover {
+            background-color: #333;
+        }
+
+        h1 {
+            margin-bottom: 40px;
+            font-size: 2rem;
+        }
+
+        hr {
+            border: 1px solid #ff4d4d;
+            margin: 1rem 0;
+        }
+
+        .units-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
+            gap: 20px; 
+            width: 100%;
+            margin-top: 2rem;
+        }
+
+        .topic {
+            background-color: #222;
+            border: 2px solid #ff4d4d;
+            border-radius: 12px;
+            padding: 1rem;
+            color: #ff4d4d;
+            text-align: center;
+            cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0px 4px 8px rgba(255, 77, 77, 0.3);
+        }
+
+        .topic:hover {
+            transform: translateY(-5px);
+            box-shadow: 0px 8px 16px rgba(255, 77, 77, 0.5);
+        }
+
+        .topic h2 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .project {
+            background-color: #333;
+            border: 1px solid #ff4d4d;
+            border-radius: 8px;
+            padding: 1rem;
+            margin: 0.5rem 0;
+            text-align: center;
+            color: #ff4d4d;
+            cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .project:hover {
+            transform: translateY(-5px);
+            box-shadow: 0px 4px 8px rgba(255, 77, 77, 0.5);
+        }
+
+        .project-title {
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+
+        .project-description {
+            font-size: 0.9rem;
+        }
+    </style>
 </head>
 <body>
     <div class="container">
@@ -23,29 +174,50 @@
         </header>
         <main>
             <div class="units-grid">
-                <div class="unit-card">
-                    <a href="https://alvarocarofdez.github.io/tryhackme.html" target="_blank" class="full-link">
-                        TryHackMe Máquinas Realizadas
-                    </a>
+                <div class="topic">
+                    <h2>TryHackMe</h2>
+                    <div class="project" onclick="window.open('https://alvarocarofdez.github.io/tryhackme.html', '_blank');">
+                        <div class="project-title">Máquinas Realizadas</div>
+                        <div class="project-description">Colección de máquinas completadas en TryHackMe</div>
+                    </div>
                 </div>              
-                <div class="unit-card">
-                    <div>Unidad 1</div>
-                    <div class="projects-popup">
-                        <p><strong>Proyecto 1:</strong> Análisis de normativas</p>
-                        <p><strong>Proyecto 2:</strong> Implementación de políticas</p>
+                <div class="topic">
+                    <h2>Unidad 1</h2>
+                    <div class="project" onclick="alert('Proyecto en desarrollo');">
+                        <div class="project-title">Proyecto 1</div>
+                        <div class="project-description">Análisis de normativas</div>
+                    </div>
+                    <div class="project" onclick="alert('Proyecto en desarrollo');">
+                        <div class="project-title">Proyecto 2</div>
+                        <div class="project-description">Implementación de políticas</div>
                     </div>
                 </div>
-                <div class="unit-card">
-                    <div>Unidad 2</div>
-                    <div class="projects-popup">
-                        <p><strong>Proyecto 1:</strong> Evaluación de riesgos</p>
-                        <p><strong>Proyecto 2:</strong> Diseño de controles</p>
+                <div class="topic">
+                    <h2>Unidad 2</h2>
+                    <div class="project" onclick="alert('Proyecto en desarrollo');">
+                        <div class="project-title">Proyecto 1</div>
+                        <div class="project-description">Evaluación de riesgos</div>
+                    </div>
+                    <div class="project" onclick="alert('Proyecto en desarrollo');">
+                        <div class="project-title">Proyecto 2</div>
+                        <div class="project-description">Diseño de controles</div>
                     </div>
                 </div>
             </div>
         </main>
     </div>
-    <script src="script.js"></script>
+    <script>
+        // Script para el menú hamburguesa
+        document.querySelector('.menu-icon').addEventListener('click', function() {
+            document.querySelector('.menu').classList.toggle('active');
+        });
+
+        // Cerrar el menú cuando se hace clic fuera de él
+        document.addEventListener('click', function(event) {
+            if (!event.target.closest('.menu-container')) {
+                document.querySelector('.menu').classList.remove('active');
+            }
+        });
+    </script>
 </body>
 </html>
-
