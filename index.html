@@ -3,210 +3,326 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Álvaro Caro Fernández - Proyectos de Ciberseguridad</title>
-    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
-
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
-
-        html, body {
-            font-family: 'Press Start 2P', monospace;
-            background: #1a1a1a;
-            color: #ff4d4d;
-            overflow-x: hidden; 
-            width: 100vw;
-        }
-
-        body {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            min-height: 100vh;
-        }
-
-        .container {
-            width: 100%;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 2rem;
-        }
-
-        header {
-            text-align: center;
-            margin-bottom: 2rem;
-            position: relative;
-        }
-
-        .home-icon {
-            position: absolute;
-            left: 20px;
-            top: 20px;
-            font-size: 24px;
-            color: #ff4d4d;
-            text-decoration: none;
-        }
-
-        .menu-container {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-        }
-
-        .menu-icon {
-            font-size: 24px;
-            cursor: pointer;
-            color: #ff4d4d;
-        }
-
-        .menu {
-            display: none;
-            position: absolute;
-            right: 0;
-            top: 100%;
-            background-color: #222;
-            border: 2px solid #ff4d4d;
-            border-radius: 8px;
-            padding: 10px;
-            z-index: 100;
-        }
-
-        .menu.active {
-            display: block;
-        }
-
-        .menu a {
-            display: block;
-            color: #ff4d4d;
-            text-decoration: none;
-            padding: 10px;
-            white-space: nowrap;
-        }
-
-        .menu a:hover {
-            background-color: #333;
-        }
-
-        h1 {
-            margin-bottom: 10px;
-            font-size: 2rem;
-        }
-
-        h2 {
-            margin-bottom: 40px;
-            font-size: 1.5rem;
-        }
-
-        hr {
-            border: 1px solid #ff4d4d;
-            margin: 1rem 0;
-        }
-
-        .subjects-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            grid-template-rows: repeat(2, auto);
-            gap: 20px;
-            width: 100%;
-            margin-top: 2rem;
-        }
-
-        @media (max-width: 900px) {
-            .subjects-grid {
-                grid-template-columns: repeat(2, 1fr);
-                grid-template-rows: repeat(3, auto);
-            }
-        }
-
-        @media (max-width: 600px) {
-            .subjects-grid {
-                grid-template-columns: 1fr;
-                grid-template-rows: repeat(6, auto);
-            }
-        }
-
-        .subject-card {
-            background-color: #222;
-            border: 2px solid #ff4d4d;
-            border-radius: 12px;
-            padding: 1.5rem;
-            text-align: center;
-            cursor: pointer;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            box-shadow: 0px 4px 8px rgba(255, 77, 77, 0.3);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            min-height: 150px;
-        }
-
-        .subject-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0px 8px 16px rgba(255, 77, 77, 0.5);
-        }
-
-        .subject-card a {
-            color: #ff4d4d;
-            text-decoration: none;
-            font-size: 1.1rem;
-            font-weight: bold;
-            text-align: center;
-        }
-    </style>
+    <title>Álvaro Caro Fernández - Administrador de Sistemas</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
 </head>
 <body>
-    <div class="container">
-        <header>
-            <div class="menu-container">
-                <div class="menu-icon">☰</div>
-                <nav class="menu">
-                    <a href="https://github.com/AlvaroCaroFdez" target="_blank" rel="noopener noreferrer">Sobre mí</a>
-                    <a href="#subjects">Asignaturas</a>
-                </nav>
+    <header class="header">
+        <nav class="nav container">
+            <div class="nav__brand">
+                <h3>Álvaro Caro Fernández</h3>
             </div>
-            <h1>Álvaro Caro Fernández</h1>
-            <h2>Proyectos de Ciberseguridad</h2>
-            <hr>
-        </header>
-        <main>
-            <div class="subjects-grid" id="subjects">
-                <div class="subject-card">
-                    <a href="normativa.html">Normativa de Ciberseguridad</a>
-                </div>
-                <div class="subject-card">
-                    <a href="analisis.html">Análisis Forense Informático</a>
-                </div>
-                <div class="subject-card">
-                    <a href="hacking.html">Hacking Ético</a>
-                </div>
-                <div class="subject-card">
-                    <a href="bastionado.html">Bastionado de Redes y Sistemas</a>
-                </div>
-                <div class="subject-card">
-                    <a href="incidentes.html">Incidentes de Ciberseguridad</a>
-                </div>
-                <div class="subject-card">
-                    <a href="produccion.html">Puesta en Producción Segura</a>
-                </div>
+            <ul class="nav__menu" id="nav-menu">
+                <li><a href="#inicio" class="nav__link">Inicio</a></li>
+                <li><a href="#sobre-mi" class="nav__link">Sobre Mí</a></li>
+                <li><a href="#asignaturas" class="nav__link">Asignaturas</a></li>
+                <li><a href="#habilidades" class="nav__link">Habilidades</a></li>
+                <li><a href="#redes" class="nav__link">Redes</a></li>
+                <li><a href="#contacto" class="nav__link">Contacto</a></li>
+            </ul>
+            <div class="nav__controls">
+                <button class="theme-toggle" id="theme-toggle" aria-label="Cambiar tema">
+                    <i class="fas fa-moon" id="theme-icon"></i>
+                </button>
+                <button class="nav__toggle" id="nav-toggle" aria-label="Menú">
+                    <i class="fas fa-bars"></i>
+                </button>
             </div>
-        </main>
-    </div>
-    <script>
-        // Script para el menú hamburguesa
-        document.querySelector('.menu-icon').addEventListener('click', function() {
-            document.querySelector('.menu').classList.toggle('active');
-        });
+        </nav>
+    </header>
 
-        // Cerrar el menú cuando se hace clic fuera de él
-        document.addEventListener('click', function(event) {
-            if (!event.target.closest('.menu-container')) {
-                document.querySelector('.menu').classList.remove('active');
-            }
-        });
-    </script>
+    <section id="inicio" class="hero">
+        <div class="container">
+            <div class="hero__content">
+                <div class="hero__text">
+                    <h1 class="hero__title">Álvaro Caro Fernández</h1>
+                    <h2 class="hero__subtitle">Administrador de Sistemas Informáticos en Red | Especialista en Ciberseguridad</h2>
+                    <p class="hero__description">
+                        Soy un administrador de sistemas informáticos en red especializado en ciberseguridad. 
+                        Desde pequeño me gustó e interesé por la informática, por eso mismo decidí realizar estos estudios.
+                        Me considero una persona trabajadora y con muchas ganas de aprender.
+                    </p>
+                    <div class="hero__buttons">
+                        <a href="#asignaturas" class="btn btn--primary">Ver Formación</a>
+                        <a href="#contacto" class="btn btn--outline">Contactar</a>
+                    </div>
+                </div>
+                <div class="hero__image">
+                    <div class="hero__avatar">
+                        <img src="./img/alvaro.png" alt="Foto Alvaro" style="width: 100%; height: 100%; object-fit: contain; border-radius: 50%;"/>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="hero__particles"></div>
+    </section>
+
+    <section id="sobre-mi" class="section">
+        <div class="container">
+            <h2 class="section__title">Sobre Mí</h2>
+            <div class="about">
+                <div class="about__content">
+                    <div class="about__text">
+                        <p>
+                            Soy un administrador de sistemas informáticos en red especializado en ciberseguridad.
+                            Mi trayectoria académica incluye los estudios de ASIR, <strong>Técnico Superior 
+                            en Administración de Sistemas Informáticos en Red</strong> y la posterior especialización 
+                            en <strong>Ciberseguridad en Entornos de las Tecnologías de la Información</strong>.
+                        </p>
+                        <p>
+                            Durante mi formación he adquirido competencias avanzadas en la protección de infraestructuras 
+                            tecnológicas, gestión de incidentes de seguridad, análisis forense y pentesting. Mi objetivo 
+                            es aplicar estos conocimientos para fortalecer la seguridad digital de las organizaciones.
+                        </p>
+                    </div>
+                    <div class="about__stats">
+                        <div class="stat">
+                            <div class="stat__number">720</div>
+                            <div class="stat__label">Horas de Formación</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat__number">6</div>
+                            <div class="stat__label">Asignaturas Especializadas</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat__number">2</div>
+                            <div class="stat__label">Titulaciones</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="asignaturas" class="section section--alt">
+        <div class="container">
+            <h2 class="section__title">Asignaturas</h2>
+            <p class="section__subtitle">Curso de Especialización en Ciberseguridad</p>
+            <div class="subjects">
+                <div class="subject-card">
+                    <a href="incidentes.html" target="_blank">
+                    <div class="subject-card__icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3 class="subject-card__title">Incidentes de Ciberseguridad</h3>
+                    <div class="subject-card__hours">140 horas</div>
+                    <p class="subject-card__description">
+                        Gestión y respuesta ante incidentes de seguridad, análisis de amenazas y implementación de medidas correctivas.
+                    </p>
+                    </a>
+                </div>
+                <div class="subject-card">
+                    <a href="bastionado.html" target="_blank">
+                    <div class="subject-card__icon">
+                        <i class="fas fa-network-wired"></i>
+                    </div>
+                    <h3 class="subject-card__title">Bastionado de Redes y Sistemas</h3>
+                    <div class="subject-card__hours">170 horas</div>
+                    <p class="subject-card__description">
+                        Hardening de sistemas operativos, configuración segura de redes y implementación de controles de seguridad.
+                    </p>
+                    </a>
+                </div>
+                <div class="subject-card">
+                    <a href="puesta-en-produccion.html" target="_blank">
+                    <div class="subject-card__icon">
+                        <i class="fas fa-code"></i>
+                    </div>
+                    <h3 class="subject-card__title">Puesta en Producción Segura</h3>
+                    <div class="subject-card__hours">120 horas</div>
+                    <p class="subject-card__description">
+                        Implementación segura de aplicaciones y servicios, DevSecOps y gestión de vulnerabilidades.
+                    </p>
+                    </a>
+                </div>
+                <div class="subject-card">
+                    <a href="analisis.html" target="_blank">
+                    <div class="subject-card__icon">
+                        <i class="fas fa-search"></i>
+                    </div>
+                    <h3 class="subject-card__title">Análisis Forense Informático</h3>
+                    <div class="subject-card__hours">120 horas</div>
+                    <p class="subject-card__description">
+                        Investigación de incidentes, recuperación de evidencias digitales y análisis de malware.
+                    </p>
+                    </a>
+                </div>
+                <div class="subject-card">
+                    <a href="hacking.html" target="_blank">
+                    <div class="subject-card__icon">
+                        <i class="fas fa-bug"></i>
+                    </div>
+                    <h3 class="subject-card__title">Hacking Ético</h3>
+                    <div class="subject-card__hours">120 horas</div>
+                    <p class="subject-card__description">
+                        Pentesting, evaluación de vulnerabilidades y técnicas de ataque controlado para mejorar la seguridad.
+                    </p>
+                    </a>
+                </div>
+                <div class="subject-card">
+                    <a href="normativa.html" target="_blank">
+                    <div class="subject-card__icon">
+                        <i class="fas fa-gavel"></i>
+                    </div>
+                    <h3 class="subject-card__title">Normativa de Ciberseguridad</h3>
+                    <div class="subject-card__hours">50 horas</div>
+                    <p class="subject-card__description">
+                        Marco legal de la ciberseguridad, RGPD, ISO 27001 y compliance en seguridad de la información.
+                    </p>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="habilidades" class="section">
+        <div class="container">
+            <h2 class="section__title">Habilidades Técnicas</h2>
+            <div class="skills">
+                <div class="skill-category">
+                    <h3 class="skill-category__title">
+                        <i class="fas fa-server"></i>
+                        Sistemas Operativos
+                    </h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Windows Server</span>
+                        <span class="skill-tag">Linux</span>
+                        <span class="skill-tag">VMware</span>
+                        <span class="skill-tag">Docker</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3 class="skill-category__title">
+                        <i class="fas fa-network-wired"></i>
+                        Redes
+                    </h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">TCP/IP</span>
+                        <span class="skill-tag">Firewall</span>
+                        <span class="skill-tag">VPN</span>
+                        <span class="skill-tag">IDS/IPS</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3 class="skill-category__title">
+                        <i class="fas fa-shield-alt"></i>
+                        Seguridad
+                    </h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">SIEM</span>
+                        <span class="skill-tag">Análisis de malware</span>
+                        <span class="skill-tag">Pentesting</span>
+                        <span class="skill-tag">Criptografía</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3 class="skill-category__title">
+                        <i class="fas fa-code"></i>
+                        Programación
+                    </h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Python</span>
+                        <span class="skill-tag">PowerShell</span>
+                        <span class="skill-tag">Bash</span>
+                        <span class="skill-tag">SQL</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="redes" class="section section--alt">
+        <div class="container">
+            <h2 class="section__title">Conecta Conmigo</h2>
+            <div class="social-networks">
+                <div class="social-card">
+                    <div class="social-card__icon">
+                        <i class="fab fa-github"></i>
+                    </div>
+                    <h3 class="social-card__title">GitHub</h3>
+                    <p class="social-card__description">
+                        Repositorios de proyectos de ciberseguridad
+                    </p>
+                    <a href="https://github.com/AlvaroCaroFdez" target="_blank" class="btn btn--primary">Visitar Perfil</a>
+                </div>
+                <div class="social-card">
+                    <div class="social-card__icon">
+                        <i class="fab fa-linkedin"></i>
+                    </div>
+                    <h3 class="social-card__title">LinkedIn</h3>
+                    <p class="social-card__description">
+                        Perfil profesional
+                    </p>
+                    <a href="https://www.linkedin.com/in/%C3%A1lvaro-caro-fern%C3%A1ndez-230317201/" target="_blank" class="btn btn--primary">Visitar Perfil</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contacto" class="section">
+        <div class="container">
+            <h2 class="section__title">Contacto</h2>
+            <div class="contact">
+                <div class="contact__info">
+                    <h3>Información de Contacto</h3>
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <span>alvarocarofernandezasir@gmail.com</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>Cádiz, España</span>
+                    </div>
+                </div>
+                <form class="contact__form" id="contact-form">
+                    <div class="form-group">
+                        <label for="name" class="form-label">Nombre</label>
+                        <input type="text" id="name" name="name" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email" class="form-label">Email</label>
+                        <input type="email" id="email" name="email" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="subject" class="form-label">Asunto</label>
+                        <input type="text" id="subject" name="subject" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message" class="form-label">Mensaje</label>
+                        <textarea id="message" name="message" class="form-control" rows="5" required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn--primary btn--full-width">
+                        <span class="btn-text">Enviar Mensaje</span>
+                        <i class="fas fa-spinner fa-spin btn-spinner hidden"></i>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer__content">
+                <div class="footer__text">
+                    <p>&copy; 2025 Álvaro Caro Fernández. Todos los derechos reservados.</p>
+                </div>
+                <div class="footer__social">
+                    <a href="https://github.com/AlvaroCaroFdez" class="footer__social-link" target="_blank">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="https://www.linkedin.com/in/%C3%A1lvaro-caro-fern%C3%A1ndez-230317201/" class="footer__social-link" target="_blank">
+                        <i class="fab fa-linkedin"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <button class="back-to-top" id="back-to-top" aria-label="Volver arriba">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <script src="app.js"></script>
 </body>
-</html> 
+</html>

@@ -1,127 +1,294 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" data-theme="dark">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Análisis Forense Informático</title>
-    <link rel="icon" href="favicon.ico" type="image/x-icon">
-    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
-
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
-
-        html, body {
-            font-family: 'Press Start 2P', monospace;
-            background: #1a1a1a;
-            color: #ff4d4d;
-            overflow-x: hidden; 
-            width: 100vw;
-        }
-
-        body {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            min-height: 100vh;
-        }
-
-        .container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
-            gap: 20px; 
-            width: 100%;
-            padding: 2rem;
-            max-width: 900px;
-            margin: 0 auto;
-        }
-
-        h1 {
-            font-size: 2.5em;
-            color: #ff4d4d;
-            text-align: center;
-            margin-bottom: 2rem;
-            grid-column: 1 / -1; 
-        }
-
-        .topic {
-            background-color: #222;
-            border: 2px solid #ff4d4d;
-            border-radius: 12px;
-            padding: 1rem;
-            color: #ff4d4d;
-            text-align: center;
-            cursor: pointer;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            box-shadow: 0px 4px 8px rgba(255, 77, 77, 0.3);
-        }
-
-        .topic:hover {
-            transform: translateY(-5px);
-            box-shadow: 0px 8px 16px rgba(255, 77, 77, 0.5);
-        }
-
-        .topic h2 {
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
-        }
-
-        .project {
-            background-color: #333;
-            border: 1px solid #ff4d4d;
-            border-radius: 8px;
-            padding: 1rem;
-            margin: 0.5rem 0;
-            text-align: center;
-            color: #ff4d4d;
-            cursor: pointer;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .project:hover {
-            transform: translateY(-5px);
-            box-shadow: 0px 4px 8px rgba(255, 77, 77, 0.5);
-        }
-
-        .project-title {
-            font-weight: bold;
-            margin-bottom: 0.5rem;
-        }
-
-        .project-description {
-            font-size: 0.9rem;
-        }
-    </style>
+    <meta name="description" content="Análisis Forense Informático - Técnicas y Metodologías de Investigación en Ciberseguridad">
+    <meta name="keywords" content="análisis forense, ciberseguridad, evidencias digitales, investigación, pentesting">
+    <meta name="author" content="Especialista en Ciberseguridad">
+    
+    <title>Análisis Forense Informático | Ciberseguridad</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="container">
-        <h1>Análisis Forense Informático</h1>
-        <div class="topic">
-            <h2>Unidad 1: Evidence Acquisition and Preservation</h2>
-            <div class="project" onclick="window.open('https://github.com/IES-Rafael-Alberti/P01-G01---Analisis-Forense', '_blank');">
-                <div class="project-title">Proyecto 01</div>
-                <div class="project-description">Development of a Forensic Analysis Methodology.</div>
-            </div>
-            <div class="project" onclick="window.open('https://alvarocarofdez.github.io/A05-Analisis-Forense', '_blank');">
-                <div class="project-title">Actividad A05</div>
-                <div class="project-description">Realizar la adquisición forense de una memoria USB.</div>
-            </div>
-            <div class="project" onclick="window.open('https://alvarocarofdez.github.io/P02.1-Analisis-Forense', '_blank');">
-                <div class="project-title">Proyecto 02.1</div>
-                <div class="project-description">Incident Investigation</div>
+    <header class="header">
+        <div class="container">
+            <nav class="nav">
+                <div class="nav__brand">
+                    <h3>Análisis Forense Informático</h3>
+                </div>
+                
+                <ul class="nav__menu" id="nav-menu">
+                    <li><a href="#overview" class="nav__link">Fundamentos</a></li>
+                    <li><a href="#projects" class="nav__link">Proyectos</a></li>
+                    <li><a href="#methodology" class="nav__link">Metodología</a></li>
+                </ul>
+                
+                <div class="nav__controls">
+                    <button class="theme-toggle" id="theme-toggle" aria-label="Cambiar tema">
+                        <i class="fas fa-moon" id="theme-icon"></i>
+                    </button>
+                    
+                    <button class="nav__toggle" id="nav-toggle" aria-label="Menú de navegación">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero" id="overview">
+        <div class="hero__particles"></div>
+        <div class="container">
+            <div class="hero__content">
+                <div class="hero__text">
+                    <h1 class="hero__title">Análisis Forense Informático</h1>
+                    <p class="hero__subtitle">Técnicas Avanzadas de Investigación en Ciberseguridad</p>
+                    <p class="hero__description">
+                        Fundamentos de la adquisición y preservación de evidencias aplicando 
+                        metodologías internacionales y técnicas especializadas de análisis forense.
+                    </p>
+                    <div class="hero__buttons">
+                        <a href="#projects" class="btn btn--primary">Ver Proyectos</a>
+                        <a href="#methodology" class="btn btn--outline">Metodología</a>
+                    </div>
+                </div>
+                <div class="hero__image">
+                    <div class="hero__avatar">
+                        <i class="fas fa-search"></i>
+                    </div>
+                </div>
             </div>
         </div>
-        <div class="topic">
-            <h2>Unidad 2: Windows Forensics</h2>
-            <div class="project" onclick="window.open('https://alvarocarofdez.github.io/A2.2-DrugTrafficking', '_blank');">
-                <div class="project-title">Actividad 2.2 - Parte 1</div>
-                <div class="project-description">Drug Trafficking</div>
+    </section>
+
+    <!-- Unidad 1 -->
+    <section class="section section--alt" id="projects">
+        <div class="container">
+            <h2 class="section__title">Unidad 1 - Evidence Acquisition and Preservation</h2>
+            <h2 class="section__subtitle">Fundamentos de la adquisición y preservación de evidencias digitales</h2>
+            <div class="subjects">
+                <div class="subject-card">
+                    <div class="subject-card__icon">
+                        <i class="fas fa-clipboard-list"></i>
+                    </div>
+                    <h3 class="subject-card__title">Proyecto 1</h3>
+                    <div class="subject-card__hours">Development of a Forensic Analysis Methodology</div>
+                    <p class="subject-card__description">
+                        Desarrollo de metodología propia para análisis forense siguiendo estándares internacionales
+                    </p>
+                </div>
+                
+                <div class="subject-card">
+                    <div class="subject-card__icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3 class="subject-card__title">Proyecto 2</h3>
+                    <div class="subject-card__hours">Incident Investigation</div>
+                    <p class="subject-card__description">
+                        Investigación completa de incidente de seguridad con documentación pericial
+                    </p>
+                </div>
             </div>
         </div>
-    </div>
+    </section>
+
+    <!-- Unidad 2 -->
+    <section class="section" id="projects">
+        <div class="container">
+            <h2 class="section__title">Unidad 2 - Windows Forensics</h2>
+            <h2 class="section__subtitle">Análisis forense especializado en sistemas Windows</h2>
+            <div class="subjects">
+                <div class="subject-card">
+                    <div class="subject-card__icon">
+                        <i class="fas fa-cogs"></i>
+                    </div>
+                    <h3 class="subject-card__title">Proyecto 3</h3>
+                    <div class="subject-card__hours">Unfaithful Employee</div>
+                    <p class="subject-card__description">
+                        Investigación de actividad sospechosa de empleado mediante análisis de artifacts Windows
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Unidad 4 -->
+
+    <section class="section section--alt" id="projects">
+        <div class="container">
+            <h2 class="section__title">Unidad 4 - RAM Forensics</h2>
+            <h2 class="section__subtitle">Análisis forense de memoria RAM y evidencias volátiles</h2>
+            <div class="subjects">
+                <div class="subject-card">
+                    <div class="subject-card__icon">
+                        <i class="fas fa-bomb"></i>
+                    </div>
+                    <h3 class="subject-card__title">Proyecto 4</h3>
+                    <div class="subject-card__hours">Bomb Threat</div>
+                    <p class="subject-card__description">
+                        Análisis de memoria RAM para investigar amenaza de bomba usando Volatility Framework
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Unidad 5 -->
+
+    <section class="section" id="projects">
+        <div class="container">
+            <h2 class="section__title">Unidad 5 - Linux Forensics</h2>
+            <h2 class="section__subtitle">Investigación forense en entornos Linux y sistemas Unix</h2>
+            <div class="subjects">
+                <div class="subject-card">
+                    <div class="subject-card__icon">
+                        <i class="fas fa-database"></i>
+                    </div>
+                    <h3 class="subject-card__title">Proyecto 5</h3>
+                    <div class="subject-card__hours">Incident on Linux Server I</div>
+                    <p class="subject-card__description">
+                        Análisis de compromiso en servidor Linux con herramientas forenses especializadas
+                    </p>
+                </div>
+                
+                <div class="subject-card">
+                    <div class="subject-card__icon">
+                        <i class="fas fa-bug"></i>
+                    </div>
+                    <h3 class="subject-card__title">Proyecto 5.2</h3>
+                    <div class="subject-card__hours">Defacement Attack</div>
+                    <p class="subject-card__description">
+                        Investigación de ataque de defacement web y reconstrucción del vector de ataque
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Unidad 6 -->
+
+    <section class="section section--alt" id="projects">
+        <div class="container">
+            <h2 class="section__title">Unidad 6 - Cloud Forensics</h2>
+            <h2 class="section__subtitle">Análisis forense en entornos cloud y servicios distribuidos</h2>
+            <div class="subjects">
+                <div class="subject-card">
+                    <div class="subject-card__icon">
+                        <i class="fas fa-cloud"></i>
+                    </div>
+                    <h3 class="subject-card__title">Proyecto 6</h3>
+                    <div class="subject-card__hours">Cloud Forensics Research</div>
+                    <p class="subject-card__description">
+                        Investigación de incidentes en infraestructura cloud AWS/Azure con herramientas especializadas
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Unidad 7 -->
+
+    <section class="section" id="projects">
+        <div class="container">
+            <h2 class="section__title">Unidad 7 - Mobile Device Forensics</h2>
+            <h2 class="section__subtitle">Análisis forense de dispositivos móviles Android e iOS</h2>
+            <div class="subjects">
+                <div class="subject-card">
+                    <div class="subject-card__icon">
+                        <i class="fas fa-mobile"></i>
+                    </div>
+                    <h3 class="subject-card__title">Proyecto 9</h3>
+                    <div class="subject-card__hours">Murder Investigation</div>
+                    <p class="subject-card__description">
+                        Análisis forense completo de smartphone en caso de homicidio con extracción de evidencias críticas
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <section class="section section--alt" id="methodology">
+        <div class="container">
+            <h2 class="section__title">Metodología de Trabajo</h2>
+            <p class="section__subtitle">Proceso estructurado de análisis forense informático</p>
+            
+            <div class="skills">
+                <div class="skill-category">
+                    <h3 class="skill-category__title">
+                        <i class="fas fa-download"></i>
+                        Adquisición de Evidencias
+                    </h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Imaging Forense</span>
+                        <span class="skill-tag">Chain of Custody</span>
+                        <span class="skill-tag">Hash Verification</span>
+                        <span class="skill-tag">Write-Blocking</span>
+                        <span class="skill-tag">Live Acquisition</span>
+                    </div>
+                </div>
+                
+                <div class="skill-category">
+                    <h3 class="skill-category__title">
+                        <i class="fas fa-lock"></i>
+                        Preservación de Datos
+                    </h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Integridad Criptográfica</span>
+                        <span class="skill-tag">Almacenamiento Seguro</span>
+                        <span class="skill-tag">Documentación Legal</span>
+                        <span class="skill-tag">Metadata Preservation</span>
+                        <span class="skill-tag">Timeline Analysis</span>
+                    </div>
+                </div>
+                
+                <div class="skill-category">
+                    <h3 class="skill-category__title">
+                        <i class="fas fa-microscope"></i>
+                        Análisis Técnico
+                    </h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">File System Analysis</span>
+                        <span class="skill-tag">Registry Examination</span>
+                        <span class="skill-tag">Network Forensics</span>
+                        <span class="skill-tag">Memory Analysis</span>
+                        <span class="skill-tag">Malware Detection</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer__content">
+                <div class="footer__text">
+                    <p>&copy; 2025 Álvaro Caro Fernández. Todos los derechos reservados.</p>
+                </div>
+                <div class="footer__social">
+                    <a href="https://github.com/AlvaroCaroFdez" class="footer__social-link" target="_blank">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="https://www.linkedin.com/in/%C3%A1lvaro-caro-fern%C3%A1ndez-230317201/" class="footer__social-link" target="_blank">
+                        <i class="fab fa-linkedin"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <button class="back-to-top" id="back-to-top" aria-label="Volver arriba">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <script src="app.js"></script>
 </body>
 </html>
